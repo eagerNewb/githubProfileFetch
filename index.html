@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Hello!</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/custom.css">
+</head>
+<body>
+
+<div class="container content">
+	<div class="row">
+		 	<div class="col-lg-12" align="center">
+		 				 <h1>Hello!</h1>
+
+			<div class="col-lg-3 col-lg-push-4 user-input">			
+			<input id="user" class="form-control" type="text" name="username" placeholder="Enter github username">
+			</div>
+			
+			<div class="col-lg-1 col-lg-push-4 lets-go-btn">
+			  	<button type="button" class="btn btn-default" onclick="init()">Let's GO!</button>
+			</div>		
+			</div>
+
+	</div>
+	<div class="row">
+		<div id="error"></div>
+		
+		<div class="col-lg-4 col-lg-offset-4 github-user-info">
+				<div class="col-lg-6">
+					<img class="img-responsive" id="githubAvatar" src="">
+				</div>
+				<div class="col-lg-6">
+					<h3 id="githubName"></h3>
+				</div>
+		</div>
+
+		<div class="col-lg-4 col-lg-offset-4">
+		<img id="avatar" src="" alt="">
+
+			<div id="reposList" class="panel panel-default repos-list">
+				<div class="panel-body">Repositories:</div>
+				<ul class="list-group"></ul>
+			</div>
+
+		</div>
+	</div>
+	
+</div>
+<script src="javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
+
+</body>
+</html>
