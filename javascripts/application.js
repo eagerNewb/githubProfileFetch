@@ -1,5 +1,4 @@
 function init() {
-	
 	// fire-up the ajax call
 	function xhr() {
 		function requestListener() {
@@ -10,8 +9,8 @@ function init() {
 		        var obj = req[i];
 
 		        var reposList = document.getElementById("reposList");
-		        reposList.innerHTML += "<li class='list-group-item'>" + obj.name.toString() + "</li>";
-
+		        reposList.innerHTML += "<li class='list-group-item'>" + obj.name + "</li>";
+		        obj = [];
 		    }
 
 
@@ -23,10 +22,8 @@ function init() {
 			document.getElementById('githubAvatar').src = avatar;
 
 			var username = req.name;
-			document.getElementById('githubName').innerHTML = username.toString();
+			document.getElementById('githubName').innerHTML = username;
 
-			document.getElementById('githubName').src.reset();
-			document.getElementById('githubAvatar').src.reset();
 		}
 
 		function failedTransfer(e) {
@@ -35,6 +32,19 @@ function init() {
 		}
 		// grab user input
 		var userid = document.getElementById('user').value;
+		// console.log(userid);
+
+		function submitForm() {
+		   // Get the first form with the name
+		   // Hopefully there is only one, but there are more, select the correct index
+		   var frm = document.getElementById('frm');
+
+		   // frm.submit(); // Submit
+		   frm.reset();  // Reset
+		   return false; // Prevent page refresh
+
+		}
+
 
 		// make new xmlhttp object
 		var xmlhttpRepos = new XMLHttpRequest();
@@ -46,7 +56,7 @@ function init() {
 
 		// add event listener
 		xmlhttpRepos.addEventListener('load', requestListener);
-		xmlhttpRepos.addEventListener('error', requestListener);
+		xmlhttpRepos.addEventListener('error', failedTransfer);
 
 		xmlhttpAvatar.addEventListener('load', requestListener2);
 		xmlhttpAvatar.addEventListener('error', failedTransfer);
@@ -58,8 +68,9 @@ function init() {
 		// send
 	    xmlhttpRepos.send();
 		xmlhttpAvatar.send();
+		submitForm();
 
 	}
+    xhr();
 
-	xhr();
 }
